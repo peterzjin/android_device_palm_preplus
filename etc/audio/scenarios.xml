@@ -1,0 +1,110 @@
+<audiod-config device="castle">
+    <comment>
+    This file is not currently used, it will be used sometime
+    soon as time permits. What it means is that changes to this
+    file will not result in changes to audiod configuration
+    as it is currently hardcoded.
+
+    Damian
+    </comment>
+    <module name="system">
+        <volume-default>50</volume-default>
+        <volume-control-sink>systemAudio</volume-control-sink>
+        <volume-control-sink>alertAudio</volume-control-sink>
+        <volume-control-sink>feedbackAudio</volume-control-sink>
+    </module>
+    <module name="ringtone">
+        <volume-default>50</volume-default>
+        <volume-control-sink>ringtoneAudio</volume-control-sink>
+    </module>
+    <module name="media">
+        <volume-default>50</volume-default>
+        <volume-control-sink>mediaAudio</volume-control-sink>
+        <volume-control-sink>flashAudio</volume-control-sink>
+        <volume-control-sink>navAudio</volume-control-sink>
+        <volume-control-sink>defaultAudio</volume-control-sink>
+        <scenario name="media_back_speaker">
+            <registers file="media_back_speaker.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="true"/>
+            <sink name="alertAudio" enabled="true" disabledORS="true"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="true"/>
+            <sink name="ringtoneAudio" enabled="true" disabledORS="true"/>
+            <sink name="mediaAudio" enabled="true" disabledORS="false" >
+                <duck-on>navAudio</duck-on>
+                <duck-on>ringtoneAudio</duck-on>
+            </sink>
+            <sink name="flashAudio" enabled="true" disabledORS="false" >
+                <duck-on>navAudio</duck-on>
+                <duck-on>ringtoneAudio</duck-on>
+            </sink>
+            <sink name="navAudio" enabled="true" disabledORS="false" >
+                <duck-on>ringtoneAudio</duck-on>
+            </sink>
+            <sink name="defaultAudio" enabled="true" >
+                <duck-on>navAudio</duck-on>
+                <duck-on>ringtoneAudio</duck-on>
+            </sink>
+        </scenario>
+        <scenario name="media_headset">
+            <registers file="media_headset.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="false"/>
+            <sink name="alertAudio" enabled="true" disabledORS="false"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="false"/>
+            <sink name="ringtoneAudio" enabled="true" disabledORS="false"/>
+            <sink name="mediaAudio" enabled="true" disabledORS="false"/>
+            <sink name="flashAudio" enabled="true" disabledORS="false"/>
+            <sink name="navAudio" enabled="true" disabledORS="false"/>
+            <sink name="defaultAudio" enabled="true" disabledORS="false"/>
+        </scenario>
+        <scenario name="media_headset_mic">
+            <registers file="media_headset_mic.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="false"/>
+            <sink name="alertAudio" enabled="true" disabledORS="false"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="false"/>
+            <sink name="ringtoneAudio" enabled="true" disabledORS="false"/>
+            <sink name="mediaAudio" enabled="true" disabledORS="false"/>
+            <sink name="flashAudio" enabled="true" disabledORS="false"/>
+            <sink name="navAudio" enabled="true" disabledORS="false"/>
+            <sink name="defaultAudio" enabled="true" disabledORS="false"/>
+        </scenario>
+        <scenario name="media_a2dp">
+            <registers file="media_a2dp.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="false"/>
+            <sink name="alertAudio" enabled="true" disabledORS="false"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="false"/>
+            <sink name="ringtoneAudio" enabled="true" disabledORS="false"/>
+            <sink name="mediaAudio" enabled="true" disabledORS="false"/>
+            <sink name="flashAudio" enabled="true" disabledORS="false"/>
+            <sink name="navAudio" enabled="true" disabledORS="false"/>
+            <sink name="defaultAudio" enabled="true" disabledORS="false"/>
+        </scenario>
+    </module>
+    <module name="phone">
+        <volume-control-registers enabled="true" />
+        <scenario name="voice_front_speaker">
+            <registers file="voice_front_speaker.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="false"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="false"/>
+        </scenario>
+        <scenario name="voice_back_speaker">
+            <registers file="voice_back_speaker.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="false"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="false"/>
+        </scenario>
+        <scenario name="voice_headset">
+            <registers file="voice_headset.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="false"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="false"/>
+        </scenario>
+        <scenario name="voice_headset_mic">
+            <registers file="voice_headset_mic.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="false"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="false"/>
+        </scenario>
+        <scenario name="voice_bluetooth_sco">
+            <registers file="voice_bluetooth_sco.txt" />
+            <sink name="systemAudio" enabled="true" disabledORS="false"/>
+            <sink name="feedbackAudio" enabled="true" disabledORS="false"/>
+        </scenario>
+    </module>
+</audiod-config>

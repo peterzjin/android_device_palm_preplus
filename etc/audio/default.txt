@@ -1,0 +1,53 @@
+begin init init
+    clrbit 0x01 0x09
+end
+begin call_started
+    codec 1
+end
+begin call_ended
+    codec 0
+end
+
+# The scripts below will be called *after* a media_xxx script to enable one mic at a time, if any.
+# Applying the all_mic_off script after any of the xxx_mic_on scripts will bring us back
+# to the state we had prior to calling any of the xxx_mic_on scripts.
+
+begin handset_mic_on
+    setreg 0x02 0xc1
+    setreg 0x04 0x01
+    setreg 0x05 0x11
+    setreg 0x07 0x08
+    setreg 0x08 0x00
+# ATXL1 = 0dB, each point gives +1dB, up to 31dB
+    setreg 0x0a 0x00
+    setreg 0x0e 0x01
+# ANAMIC_GAIN = +18dB, each point gives +6dB, up to +30db
+    setreg 0x48 0x03
+end
+
+begin headset_mic_on
+    setreg 0x02 0xc1
+    setreg 0x04 0x04
+    setreg 0x05 0x12
+    setreg 0x07 0x08
+    setreg 0x08 0x00
+# ATXL1 = 0dB
+    setreg 0x0a 0x00
+    setreg 0x0e 0x01
+# ANAMIC_GAIN = +30dB
+    setreg 0x48 0x05
+end
+
+# turn off handset mic, turn off headset mic 
+begin all_mic_off
+    setreg 0x02 0xc0
+    setreg 0x04 0x00
+    setreg 0x05 0x00
+    setreg 0x07 0x00
+    setreg 0x08 0x00
+# ATXL1 = 0dB
+    setreg 0x0a 0x00
+    setreg 0x0e 0x01
+# ANAMIC_GAIN = 0dB
+    setreg 0x48 0x00
+end

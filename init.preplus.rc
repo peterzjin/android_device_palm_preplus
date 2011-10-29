@@ -1,0 +1,6 @@
+on post-fs
+    # allow system to modify audio control files
+    chown media media /sys/devices/platform/twl4030_audio/scinit
+    chown media media /sys/devices/platform/twl4030_audio/scrun
+    chmod 0660 /sys/devices/platform/twl4030_audio/scinit
+    chmod 0660 /sys/devices/platform/twl4030_audio/scrun

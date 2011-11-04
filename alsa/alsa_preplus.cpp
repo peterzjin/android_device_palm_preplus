@@ -672,10 +672,15 @@ static status_t s_standby(alsa_handle_t *handle)
     //hw specific modules may choose to implement
     //this differently to gain a power savings during
     //standby
+    status_t err = NO_ERROR;
+    snd_pcm_t *h = handle->handle;
     LOGD("s_standby: enter func ...\n");
-    snd_pcm_drain (handle->handle);
-    return NO_ERROR;
-
+    handle->handle = 0;
+    if (h) {
+        snd_pcm_drain(h);
+        err = snd_pcm_close(h);
+    }
+    return err;
 }
 
 static status_t s_route(alsa_handle_t *handle, uint32_t devices, int mode)

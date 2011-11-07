@@ -52,3 +52,23 @@ PRODUCT_COPY_FILES += \
 #
 PRODUCT_PACKAGES += \
     alsa.preplus
+
+# wifi firmware
+PRODUCT_COPY_FILES += \
+	device/palm/preplus/wifi/firmware/mrvl/helper_sd.bin:system/etc/firmware/mrvl/helper_sd.bin \
+	device/palm/preplus/wifi/firmware/mrvl/sd8686.bin:system/etc/firmware/mrvl/sd8686.bin \
+	device/palm/preplus/wifi/firmware/mrvl/sd8686_ap.bin:system/etc/firmware/mrvl/sd8686_ap.bin \
+	device/palm/preplus/wifi/firmware/mrvl/mfg_sd8686.bin:system/etc/firmware/mrvl/mfg_sd8686.bin
+
+# wifi drivers
+PRODUCT_COPY_FILES += \
+	device/palm/preplus/wifi/modules/sd8xxx.ko:system/lib/modules/sd8xxx.ko \
+	device/palm/preplus/wifi/modules/uap8xxx.ko:system/lib/modules/uap8xxx.ko
+
+# wpa_supplicant.conf
+PRODUCT_COPY_FILES += \
+	device/palm/preplus/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
+# dhcpcd.conf
+PRODUCT_COPY_FILES += \
+	device/palm/preplus/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf

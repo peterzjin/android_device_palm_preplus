@@ -43,3 +43,10 @@ BUILD_WITH_ALSA_UTILS := true
 BOARD_NO_PAGE_FLIPPING := true
 
 TARGET_USE_EXT3_USERDATA_IMG := true
+
+# wifi parameters
+WPA_SUPPLICANT_VERSION := VER_0_5_X
+BOARD_WPA_SUPPLICANT_DRIVER := AWEXT
+WIFI_DRIVER_MODULE_PATH := /system/lib/modules/sd8xxx.ko
+WIFI_DRIVER_MODULE_ARG := "helper_name=system/etc/firmware/mrvl/helper_sd.bin fw_name=system/etc/firmware/mrvl/sd8686.bin"
+WIFI_DRIVER_MODULE_NAME := sd8xxx

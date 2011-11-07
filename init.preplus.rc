@@ -10,3 +10,22 @@ on post-fs
 
     # PM related settings
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
+
+    # WiFi related settings
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    setprop wifi.interface "eth0"
+
+# Service for WiFi
+service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dawext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf
+    #user wifi
+    #group wifi inet
+    socket wpa_eth0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+# Serivce for DHCP
+service dhcpcd_eth0 /system/bin/logwrapper /system/bin/dhcpcd -B
+    disabled
+    oneshot

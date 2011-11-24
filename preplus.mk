@@ -49,7 +49,7 @@ PRODUCT_COPY_FILES += \
     device/palm/preplus/etc/audio/voice_command_headset_mic.txt:system/etc/audio/voice_command_headset_mic.txt \
     device/palm/preplus/etc/audio/voice_command_headset.txt:system/etc/audio/voice_command_headset.txt
 
-#
+# alsa audio for preplus
 PRODUCT_PACKAGES += \
     alsa.preplus
 
@@ -72,3 +72,23 @@ PRODUCT_COPY_FILES += \
 # dhcpcd.conf
 PRODUCT_COPY_FILES += \
 	device/palm/preplus/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
+
+# PowerVR SGX DDK Lib
+PRODUCT_COPY_FILES += \
+    device/palm/preplus/pvr/lib/libfakehal.so:system/lib/libfakehal.so \
+    device/palm/preplus/pvr/lib/libglslcompiler.so:system/lib/libglslcompiler.so \
+    device/palm/preplus/pvr/lib/libIMGegl.so:system/lib/libIMGegl.so \
+    device/palm/preplus/pvr/lib/libpvr2d.so:system/lib/libpvr2d.so \
+    device/palm/preplus/pvr/lib/libpvrANDROID_WSEGL.so:system/lib/libpvrANDROID_WSEGL.so \
+    device/palm/preplus/pvr/lib/libPVRScopeServices.so:system/lib/libPVRScopeServices.so \
+    device/palm/preplus/pvr/lib/libsfutil.so:system/lib/libsfutil.so \
+    device/palm/preplus/pvr/lib/libsrv_um.so:system/lib/libsrv_um.so \
+    device/palm/preplus/pvr/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
+    device/palm/preplus/pvr/lib/egl/libEGL_POWERVR_SGX530_121.so:system/lib/egl/libEGL_POWERVR_SGX530_121.so \
+    device/palm/preplus/pvr/lib/egl/libGLESv1_CM_POWERVR_SGX530_121.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX530_121.so \
+    device/palm/preplus/pvr/lib/egl/libGLESv2_POWERVR_SGX530_121.so:system/lib/egl/libGLESv2_POWERVR_SGX530_121.so \
+    device/palm/preplus/pvr/lib/hw/gralloc.omap3.so:system/lib/hw/gralloc.omap3.so \
+    device/palm/preplus/pvr/lib/modules/omaplfb.ko:system/lib/modules/omaplfb.ko \
+    device/palm/preplus/pvr/lib/modules/pvrsrvkm.ko:system/lib/modules/pvrsrvkm.ko \
+    device/palm/preplus/pvr/bin/pvrsrvinit:system/bin/pvrsrvinit \
+    device/palm/preplus/pvr/bin/rc.pvr:system/bin/rc.pvr

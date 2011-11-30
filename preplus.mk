@@ -23,7 +23,7 @@ PRODUCT_DEVICE := preplus
 
 PRODUCT_COPY_FILES += \
     device/palm/preplus/init.rc:root/init.rc \
-    device/palm/preplus/init.preplus.rc:root/init.preplus.rc
+    device/palm/preplus/init.sirloin.rc:root/init.sirloin.rc
 
 # audio scripts from webos
 PRODUCT_COPY_FILES += \
@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
 
 # alsa audio for preplus
 PRODUCT_PACKAGES += \
-    alsa.preplus
+    alsa.omap3
 
 # wifi firmware
 PRODUCT_COPY_FILES += \

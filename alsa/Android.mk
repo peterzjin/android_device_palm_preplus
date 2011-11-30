@@ -24,7 +24,7 @@ endif
       libasound \
       liblog
 
-  LOCAL_MODULE:= alsa.preplus
+  LOCAL_MODULE:= alsa.omap3
   LOCAL_MODULE_TAGS:= optional
 
   include $(BUILD_SHARED_LIBRARY)

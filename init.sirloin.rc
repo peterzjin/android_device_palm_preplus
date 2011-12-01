@@ -1,3 +1,7 @@
+on fs
+    mount ext3 loop@userdata.ext3 /data nosuid nodev
+    mount ext3 loop@cache.ext3 /cache nosuid nodev
+
 on post-fs
     # allow system to modify audio control files
     chown media media /sys/devices/platform/twl4030_audio/scinit

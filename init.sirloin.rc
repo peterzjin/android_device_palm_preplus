@@ -1,6 +1,8 @@
 on fs
     mount ext3 loop@userdata.ext3 /data nosuid nodev
     mount ext3 loop@cache.ext3 /cache nosuid nodev
+    # Some hack here, remount media-store to change some parameters
+    mount vfat none /boot/realroot remount uid=1000,gid=1015,dmask=0602,fmask=0602
 
 on post-fs
     # allow system to modify audio control files

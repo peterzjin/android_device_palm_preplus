@@ -23,7 +23,8 @@ PRODUCT_DEVICE := preplus
 
 PRODUCT_COPY_FILES += \
     device/palm/preplus/init.rc:root/init.rc \
-    device/palm/preplus/init.sirloin.rc:root/init.sirloin.rc
+    device/palm/preplus/init.sirloin.rc:root/init.sirloin.rc \
+    device/palm/preplus/vold.fstab:system/etc/vold.fstab
 
 # audio scripts from webos
 PRODUCT_COPY_FILES += \

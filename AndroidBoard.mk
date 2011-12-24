@@ -28,13 +28,13 @@ preplus: droid
 	$(hide) cp -rfd $(TARGET_OUT) $(TARGET_PREPLUS_OUT)
 	$(hide) echo "Done. Building data image ..."
 	$(hide) $(MKEXT2IMG) -d $(TARGET_OUT_DATA) -b $(PREPLUS_USERDATA_SIZE) $(TARGET_PREPLUS_OUT)/$(PREPLUS_USERDATA_IMG)
-	$(hide) tune2fs -j $(TARGET_PREPLUS_OUT)/$(PREPLUS_USERDATA_IMG)
+	$(hide) tune2fs -O filetype -j $(TARGET_PREPLUS_OUT)/$(PREPLUS_USERDATA_IMG)
 	$(hide) echo "Done. Building cache image ..."
 	$(hide) dd if=/dev/zero of=$(TARGET_PREPLUS_OUT)/$(PREPLUS_CACHE_IMG) bs=1KiB count=$(PREPLUS_CACHE_SIZE)
 	$(hide) mkfs.ext3 -F $(TARGET_PREPLUS_OUT)/$(PREPLUS_CACHE_IMG)
 	$(hide) echo "Done. Building whole filesystem image ..."
 	$(hide) $(MKEXT2IMG) -d $(TARGET_PREPLUS_OUT) -b $(PREPLUS_IMG_SIZE) $(PRODUCT_OUT)/$(PREPLUS_IMG)
-	$(hide) tune2fs -j $(PRODUCT_OUT)/$(PREPLUS_IMG)
+	$(hide) tune2fs -O filetype -j $(PRODUCT_OUT)/$(PREPLUS_IMG)
 	$(hide) echo "Done. Making tarball ..."
 	$(hide) tar --remove-files --directory=$(PRODUCT_OUT) -zcvf $(PRODUCT_OUT)/$(PREPLUS_TARBALL) $(PREPLUS_IMG)
 	$(hide) echo "Done. $(PREPLUS_TARBALL) is ready, enjoy!"

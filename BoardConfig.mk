@@ -48,3 +48,19 @@ BOARD_WPA_SUPPLICANT_DRIVER := AWEXT
 WIFI_DRIVER_MODULE_PATH := /system/lib/modules/sd8xxx.ko
 WIFI_DRIVER_MODULE_ARG := "helper_name=system/etc/firmware/mrvl/helper_sd.bin fw_name=system/etc/firmware/mrvl/sd8686.bin"
 WIFI_DRIVER_MODULE_NAME := sd8xxx
+
+COMMON_GLOBAL_CFLAGS += -DTARGET_OMAP3 -DOMAP_COMPAT
+
+HARDWARE_OMX := true
+ifdef HARDWARE_OMX
+OMX_JPEG := true
+OMX_VENDOR := ti
+OMX_VENDOR_INCLUDES := \
+   hardware/ti/omx/system/src/openmax_il/omx_core/inc \
+   hardware/ti/omx/image/src/openmax_il/jpeg_enc/inc
+OMX_VENDOR_WRAPPER := TI_OMX_Wrapper
+BOARD_OPENCORE_LIBRARIES := libOMX_Core
+BOARD_OPENCORE_FLAGS := -DHARDWARE_OMX=1
+BOARD_CAMERA_LIBRARIES := libcamera
+BUILD_WITH_TI_AUDIO := 1
+endif

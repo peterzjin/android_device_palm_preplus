@@ -22,7 +22,7 @@ PREPLUS_CACHE_IMG := cache.ext3
 
 preplus: droid
 	$(hide) rm -rf $(TARGET_PREPLUS_OUT) $(PRODUCT_OUT)/$(PREPLUS_IMG) $(PRODUCT_OUT)/$(PREPLUS_TARBALL)
-	$(hide) mkdir -p $(TARGET_PREPLUS_OUT)
+	$(hide) mkdir -p $(TARGET_PREPLUS_OUT)/boot
 	$(hide) echo "Copying files to preplus ..."
 	$(hide) cp -rfd $(TARGET_ROOT_OUT)/* $(TARGET_PREPLUS_OUT)
 	$(hide) cp -rfd $(TARGET_OUT) $(TARGET_PREPLUS_OUT)

@@ -20,6 +20,12 @@ on post-fs
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     setprop wifi.interface "eth0"
 
+    # Load DSP driver
+    insmod /system/lib/modules/bridgedriver.ko
+
+on boot
+    chmod 0666 /dev/DspBridge
+
 # Service for WiFi
 service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dawext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf
     #user wifi
@@ -35,3 +41,9 @@ service dhcpcd_eth0 /system/bin/logwrapper /system/bin/dhcpcd -B
 
 # Start PowerVR SGX DDK
 service pvr /system/bin/rc.pvr start
+
+# load DSP firmware
+service baseimage /system/bin/dspexec /system/lib/dsp/baseimage.dof
+    user root
+    group audio
+    oneshot

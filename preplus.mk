@@ -93,3 +93,42 @@ PRODUCT_COPY_FILES += \
     device/palm/preplus/pvr/lib/modules/pvrsrvkm.ko:system/lib/modules/pvrsrvkm.ko \
     device/palm/preplus/pvr/bin/pvrsrvinit:system/bin/pvrsrvinit \
     device/palm/preplus/pvr/bin/rc.pvr:system/bin/rc.pvr
+
+# dsp
+PRODUCT_PACKAGES += \
+	dspexec \
+	libbridge \
+	libOMX.TI.AAC.encode \
+	libOMX.TI.AMR.encode \
+	libOMX.TI.WBAMR.encode \
+	libOMX.TI.JPEG.Encoder \
+	libLCML \
+	libOMX_Core \
+	libOMX.TI.Video.Decoder \
+	libOMX.TI.Video.encoder \
+	libVendor_ti_omx
+
+PRODUCT_COPY_FILES += \
+    device/palm/preplus/dsp/bridgedriver.ko:system/lib/modules/bridgedriver.ko \
+    device/palm/preplus/dsp/baseimage.dof:system/lib/dsp/baseimage.dof \
+    device/palm/preplus/dsp/chromasuppress.l64p:system/lib/dsp/chromasuppress.l64p \
+    device/palm/preplus/dsp/conversions.dll64P:system/lib/dsp/conversions.dll64P \
+    device/palm/preplus/dsp/dctn_dyn.dll64P:system/lib/dsp/dctn_dyn.dll64P \
+    device/palm/preplus/dsp/dfgm.dll64P:system/lib/dsp/dfgm.dll64P \
+    device/palm/preplus/dsp/eenf_ti.l64P:system/lib/dsp/eenf_ti.l64P \
+    device/palm/preplus/dsp/h264vdec_sn.dll64P:system/lib/dsp/h264vdec_sn.dll64P \
+    device/palm/preplus/dsp/ipp_sn.dll64P:system/lib/dsp/ipp_sn.dll64P \
+    device/palm/preplus/dsp/jpegdec_sn.dll64P:system/lib/dsp/jpegdec_sn.dll64P \
+    device/palm/preplus/dsp/jpegenc_sn.dll64P:system/lib/dsp/jpegenc_sn.dll64P \
+    device/palm/preplus/dsp/m4venc_sn.dll64P:system/lib/dsp/m4venc_sn.dll64P \
+    device/palm/preplus/dsp/mp3dec_sn.dll64P:system/lib/dsp/mp3dec_sn.dll64P \
+    device/palm/preplus/dsp/mp4vdec_sn.dll64P:system/lib/dsp/mp4vdec_sn.dll64P \
+    device/palm/preplus/dsp/mpeg4aacdec_sn.dll64P:system/lib/dsp/mpeg4aacdec_sn.dll64P \
+    device/palm/preplus/dsp/mpeg4aacenc_sn.dll64P:system/lib/dsp/mpeg4aacenc_sn.dll64P \
+    device/palm/preplus/dsp/nbamrdec_sn.dll64P:system/lib/dsp/nbamrdec_sn.dll6P \
+    device/palm/preplus/dsp/pcmd_tn.dll64P:system/lib/dsp/pcmd_tn.dll64P \
+    device/palm/preplus/dsp/ringio.dll64P:system/lib/dsp/ringio.dll64P \
+    device/palm/preplus/dsp/star.l64P:system/lib/dsp/star.l64P \
+    device/palm/preplus/dsp/usn.dll64P:system/lib/dsp/usn.dll64P \
+    device/palm/preplus/dsp/vpp_sn.dll64P:system/lib/dsp/vpp_sn.dll64P \
+    device/palm/preplus/dsp/yuvconvert.l64p:system/lib/dsp/yuvconvert.l64p

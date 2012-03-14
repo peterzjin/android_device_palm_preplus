@@ -132,3 +132,12 @@ PRODUCT_COPY_FILES += \
     device/palm/preplus/dsp/usn.dll64P:system/lib/dsp/usn.dll64P \
     device/palm/preplus/dsp/vpp_sn.dll64P:system/lib/dsp/vpp_sn.dll64P \
     device/palm/preplus/dsp/yuvconvert.l64p:system/lib/dsp/yuvconvert.l64p
+
+# RIL for preplus
+PRODUCT_PACKAGES += \
+    libpreplus-ril
+
+PRODUCT_COPY_FILES += \
+    device/palm/preplus/ril/ril_chmod.sh:system/bin/ril_chmod.sh \
+    device/palm/preplus/ril/apns-conf.xml:system/etc/apns-conf.xml \
+    device/palm/preplus/ril/spn-conf.xml:system/etc/spn-conf.xml

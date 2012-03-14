@@ -14,6 +14,10 @@ on post-fs
     # PM related settings
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
 
+    # enable gsm modem
+    write /sys/user_hw/pins/modem/power_on/level 1
+    write /sys/user_hw/pins/modem/wakeup_modem/level 1
+
     # WiFi related settings
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -25,6 +29,14 @@ on post-fs
 
 on boot
     chmod 0666 /dev/DspBridge
+
+# Set for RIL
+    setprop rild.libpath /system/lib/libpreplus-ril.so
+    setprop rild.libargs "-d /dev/ttyACM0"
+
+# chmod AT port
+service ril-chmod /system/bin/ril_chmod.sh
+    onshot
 
 # Service for WiFi
 service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dawext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf
